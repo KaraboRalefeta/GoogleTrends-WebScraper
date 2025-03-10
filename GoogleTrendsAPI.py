@@ -8,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 import time
 
+
 from country_code import countries
 
 
@@ -86,8 +87,6 @@ async def generate_link(request:Request) ->str:
 
 @app.post("/")
 async def RequestTrends(request:Request):
-    print(request.headers.get('Content-Type'))
-    print(1)
     if (request.headers.get('Content-Type') != "application/json"):
         content = await getTrends()
         return content
