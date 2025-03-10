@@ -11,17 +11,14 @@ import time
 from country_code import countries
 
 
-
-
-
-
-
 def reloadWebDriver():
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
     options.add_argument("--headless")
     options.add_argument('--ignore-certificate-errors-spki-list')
     options.add_argument('--ignore-ssl-errors')
+    options.add_argument("--no-sandbox")  
+    options.add_argument("--disable-dev-shm-usage")  
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
